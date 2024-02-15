@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100% !important;
+    /* add font family */
+}
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+#nav {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: saturate(100%) blur(20px);
+    padding: 1rem;
+    position: fixed; /* torna a barra de navegação fixa */
+    top: 0; /* posiciona a barra de navegação no topo da janela do navegador */
+    z-index: 1000; /* certifica-se de que a barra de navegação fique sobre outros elementos */
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+ul > li {
+    list-style-type: none;
+}
+
+ul > li > a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* Reset de margem e padding para todas as seções */
+section {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para cada seção ocupar toda a página */
+section {
+    height: 90vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilo para o título das seções */
+section h2 {
+    margin-bottom: 20px;
+}
+
+/* Estilo para o conteúdo das seções */
+section p {
+    margin-bottom: 10px;
+}
+
+/* Estilo para a lista de cursos */
+section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilo para os itens da lista de cursos */
+section ul li {
+    margin: 5px 0;
+}
+
+/* Estilo para as imagens na seção de projetos */
+section img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Estilo para os links na seção de projetos */
+section a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Estilo para todas as seções */
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px; /* Espaçamento interno (topo e laterais) */
+
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+
+section p {
+    margin-bottom: 10px;
+}
+
+section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+section ul li {
+    margin: 5px 0;
+}
+
+section img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+section a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+section div i {
+    margin-right: 5px;
+}
+
+
+/* Estilo para a primeira seção (Home) */
+#Home {
+    position: relative;
+    height: 90vh;
+}
+
+#Home h2 {
+    margin: 0; /* Remover margem padrão */
+    font-size: 48px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    text-transform: uppercase; /* Transformar texto em maiúsculas */
+    align-self: flex-start; /* Posiciona o título no início do eixo transversal (canto superior esquerdo) */
+}
+
+#Home .h2-container {
+    position: absolute;
+    top: 20%;
+    left: 5rem; /* distância do canto esquerdo */
+    transform: translateY(-50%); /* centraliza verticalmente */
+    display: flex;
+    flex-direction: column;
+}
+
+#Home .info-container {
+    position: absolute;
+    top: 50%;
+    left: 2rem; /* distância do canto esquerdo */
+    transform: translateY(-50%); /* centraliza verticalmente */
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#Home .background-image {
+    position: absolute;
+    background-color: #f7ede2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 36px; /* Tamanho do ícone */
+    
+}
+
+.icon-container i {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+.image-container {
+    max-width: 30%;
+    margin-left: auto;
+}
+
+.image-container img {
+    max-width: 80%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .image-container {
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .image-container {
+        max-width: 100%;
+    }
+}
+
+#Home .profile-image {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+
+/* Estilo para a terceira seção (Projetos) */
+#Projetos {
+    position: relative;
+    height: 90vh;
+    background-color: #212529;
+    color: #ffffff;
+}
+
+#Projetos h2 {
+    margin: 0; /* Remover margem padrão */
+    font-size: 48px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    text-transform: uppercase; /* Transformar texto em maiúsculas */
+    align-self: center; /* Posiciona o título no início do eixo transversal (canto superior esquerdo) */
+}
+
+#Projetos .h2-container {
+    position: absolute;
+    top: 10%;
+    transform: translateY(-50%); 
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.gallery-wrapper {
+    width: 100%;
+}
+
+.gallery {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    justify-content: center;
+}
+
+.item {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+
+
+
+
+/* Estilo para a segunda seção (Infopessoais) */
+#Infopessoais {
+    background-color: #f7ede2;
+    color: #000000; /* Cor do texto */
+}
+
+
+
+/* Estilo para a quarta seção (Experiencia) */
+#Experiencia {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Estilo para a quinta seção (Cursos) */
+#Cursos {
+    background-color: #f7ede2;
+}
+
