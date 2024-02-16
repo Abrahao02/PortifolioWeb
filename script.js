@@ -1,3 +1,24 @@
+// JavaScript para o carrossel
+var swiper = new Swiper(".swiper", {
+    cssMode: true,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    keyboard: true,
+    on: {
+        init: function () {
+            this.slides.forEach(slide => {
+                slide.style.overflow = 'hidden';
+            });
+        },
+    },
+  });
+
 
 // NAVEGACAO SUAVE
 document.addEventListener("DOMContentLoaded", function() {
@@ -56,26 +77,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// JavaScript para o carrossel
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const imagesContainer = document.querySelector('.images');
-const images = document.querySelectorAll('.images .item');
 
-let currentIndex = 0;
 
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateGallery();
-});
-
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateGallery();
-});
-
-function updateGallery() {
-    const translateValue = -currentIndex * 100; // Ajuste conforme necessário
-    imagesContainer.style.transform = `translateX(${translateValue}%)`;
-}
 

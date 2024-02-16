@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://kit.fontawesome.com/31fbfddc8b.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="styles.css">
-        <script src="script.js"></script>
-        <title>Portifolio</title>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifolio</title>
+    <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" 
+    />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
 <body>
     <nav id="nav">
         <ul>
@@ -18,15 +23,15 @@
             <li><a href="#Cursos">Cursos</a></li>
         </ul>
     </nav>
-    
+
     <main>
         <section id="Home">
 
             <div class="background-image"></div>
 
-            <div class="h2-container">                
+            <div class="h2-container">
                 <h2>Eduardo De Sá Abrahão</h2>
-                <p>Engenheiro de Software, Full-Stack Developer</p>
+                <p class="h2-title">Engenheiro de Software, Full-Stack Developer</p>
             </div>
 
             <div class="info-container">
@@ -36,48 +41,60 @@
                 </div>
 
                 <div class="icon-container">
-                    <a href="https://www.linkedin.com/in/eduardo-abrah%C3%A3o-160957238/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/eduardo-abrah%C3%A3o-160957238/" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                </div>
+
+                <div class="icon-container">
+                    <i class="fas fa-phone"></i>
+                    <span id="telefone" style="display: none;">+55(21) 99437-7887</span>
                 </div>
 
                 <div class="icon-container">
                     <i class="fa-solid fa-envelope"></i>
                     <span id="email" style="display: none;">eduardo.abrahao@hotmail.com</span>
                 </div>
-                
-                <div class="icon-container">
-                    <i class="fas fa-phone"></i>
-                    <span id="telefone" style="display: none;">+55(21) 99437-7887</span>
-                </div>
+
+
             </div>
 
-            <div class="image-container">
+            <!-- <div class="image-container">
                 <img src="Imagens/euimage.jpeg" alt="Eduardo De Sá Abrahão" class="profile-image">
-            </div>
+            </div> -->
+            
         </section>
 
         <section id="Projetos">
-            <div class="h2-container">                
-                <h2>Projetos</h2>
-            </div>
-            <div class="gallery-container">
-                <div class="gallery-wrapper">
-                    <div class="gallery">
-                        <a href="https://infnet-aluno2023-01.azurewebsites.net/?pagina=1" target="_blank">
-                            <img src="imagens/site.PNG" alt="Descrição da imagem" class="item">
-                        </a>
-                        <a href="https://github.com/Abrahao02/ReceitaAplicativoAndroid" target="_blank">
-                            <img src="imagens/WhatsApp Image 2024-01-30 at 18.49.44.jpeg" alt="" class="item">
-                        </a>
-                        <!-- Adicione mais imagens conforme necessário -->
+            <h2 class="h2-container">Projetos</h2>
+
+            <div class="swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="project-img">
+                            <a href="https://infnet-aluno2023-01.azurewebsites.net/?pagina=1" target="_blank">
+                                <img src="Imagens/Foto_01.PNG" alt="Foto 01">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="project-img">
+                            <a href="https://github.com/Abrahao02/ReceitaAplicativoAndroid" target="_blank">
+                                <img src="Imagens/Foto_02.jpeg" alt="Foto 02">
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-buttons">
-                    <button id="prevBtn">Anterior</button>
-                    <button id="nextBtn">Próxima</button>
-                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
+
+
         </section>
-        
+
 
         <section id="Infopessoais">
             <h2>Informações Pessoais</h2>
@@ -101,13 +118,20 @@
                 <li>HTML/CSS</li>
             </ul>
             <div style="display: inline_block"><br>
-                <img align="center" alt="Edu-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-                <img align="center" alt="Edu-React" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
-                <img align="center" alt="Edu-HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
-                <img align="center" alt="Edu-CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
-                <img align="center" alt="Edu-Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
-                <img align="center" alt="Edu-C#" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg">
-                <img align="center" alt="Edu-Kotlin" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg">
+                <img align="center" alt="Edu-Js" height="30" width="40"
+                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+                <img align="center" alt="Edu-React" height="30" width="40"
+                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+                <img align="center" alt="Edu-HTML" height="30" width="40"
+                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+                <img align="center" alt="Edu-CSS" height="30" width="40"
+                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
+                <img align="center" alt="Edu-Python" height="30" width="40"
+                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+                <img align="center" alt="Edu-C#" height="30" width="40"
+                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg">
+                <img align="center" alt="Edu-Kotlin" height="30" width="40"
+                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg">
             </div>
         </section>
 
@@ -125,6 +149,9 @@
         </section>
     </main>
 
-    <script src="scripts.js"></script>
+    <script src="https://kit.fontawesome.com/31fbfddc8b.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

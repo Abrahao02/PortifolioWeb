@@ -14,7 +14,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
 }
 
 #nav {
@@ -22,22 +22,25 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: saturate(100%) blur(20px);
     padding: 1rem;
-    position: fixed; /* torna a barra de navegação fixa */
-    top: 0; /* posiciona a barra de navegação no topo da janela do navegador */
-    z-index: 1000; /* certifica-se de que a barra de navegação fique sobre outros elementos */
+    position: fixed;
+    /* torna a barra de navegação fixa */
+    top: 0;
+    /* posiciona a barra de navegação no topo da janela do navegador */
+    z-index: 1000;
+    /* certifica-se de que a barra de navegação fique sobre outros elementos */
 }
 
-ul{
+ul {
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
 
-ul > li {
+ul>li {
     list-style-type: none;
 }
 
-ul > li > a{
+ul>li>a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
 }
@@ -51,7 +54,7 @@ section {
 
 /* Estilo para cada seção ocupar toda a página */
 section {
-    height: 90vh; 
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,7 +102,8 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 60px 20px; /* Espaçamento interno (topo e laterais) */
+    padding: 60px 20px;
+    /* Espaçamento interno (topo e laterais) */
 
 }
 
@@ -127,7 +131,7 @@ section img {
 }
 
 section a {
-    color: #007bff;
+    color: #283618;
     text-decoration: none;
 }
 
@@ -143,27 +147,42 @@ section div i {
 }
 
 #Home h2 {
-    margin: 0; /* Remover margem padrão */
-    font-size: 48px; /* Tamanho da fonte */
-    font-weight: bold; /* Negrito */
-    text-transform: uppercase; /* Transformar texto em maiúsculas */
-    align-self: flex-start; /* Posiciona o título no início do eixo transversal (canto superior esquerdo) */
+    margin: 0;
+    font-size: 58px;
+    font-weight: bold;
+    text-transform: uppercase;
+    align-self: flex-start;
+}
+
+#Home .h2-title {
+    font-size: 22px;
+    color: #283618;
 }
 
 #Home .h2-container {
     position: absolute;
-    top: 20%;
-    left: 5rem; /* distância do canto esquerdo */
-    transform: translateY(-50%); /* centraliza verticalmente */
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
+    color: #283618;
 }
+
+/* #Home .h2-container {
+    position: absolute;
+    top: 25%;
+    left: 8rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    color: #283618;
+} */
 
 #Home .info-container {
     position: absolute;
     top: 50%;
-    left: 2rem; /* distância do canto esquerdo */
-    transform: translateY(-50%); /* centraliza verticalmente */
+    left: 2rem;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
 }
@@ -186,8 +205,9 @@ section div i {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
-    font-size: 36px; /* Tamanho do ícone */
-    
+    font-size: 36px;
+    /* Tamanho do ícone */
+
 }
 
 .icon-container i {
@@ -225,6 +245,27 @@ section div i {
     margin-bottom: 1rem;
 }
 
+/* Define a animação para os elementos <span> dentro dos contêineres .icon-container */
+.icon-container span {
+    color: #283618;
+    animation-duration: 1s; /* Define a duração da animação como 1 segundo */
+    animation-name: slidein; /* Especifica o nome da animação */
+    animation-fill-mode: forwards; /* Mantém o último quadro da animação após a execução */
+    opacity: 0; /* Inicialmente, define a opacidade para 0 */
+  }
+  
+  /* Define os quadros-chave da animação slide-in */
+  @keyframes slidein {
+    from {
+      margin-left: 100%; /* Move o elemento para a direita (fora da tela) */
+      opacity: 0; /* Define a opacidade para 0 */
+    }
+    to {
+      margin-left: 0%; /* Move o elemento de volta para a posição inicial */
+      opacity: 1; /* Torna o elemento completamente visível */
+    }
+  }
+  
 
 /* Estilo para a terceira seção (Projetos) */
 #Projetos {
@@ -235,52 +276,70 @@ section div i {
 }
 
 #Projetos h2 {
-    margin: 0; /* Remover margem padrão */
-    font-size: 48px; /* Tamanho da fonte */
-    font-weight: bold; /* Negrito */
-    text-transform: uppercase; /* Transformar texto em maiúsculas */
-    align-self: center; /* Posiciona o título no início do eixo transversal (canto superior esquerdo) */
+    margin: 0px;
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    align-self: center;
 }
 
 #Projetos .h2-container {
     position: absolute;
     top: 10%;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
 }
 
-.gallery-container {
-    width: 100%;
-    overflow: hidden;
+span {
+    font-size: x-large;
 }
 
-.gallery-wrapper {
-    width: 100%;
+.swiper {
+    width: 1200px;
+    height: 600px;
 }
 
-.gallery {
+.swiper-slider {
+    text-align: center;
     display: flex;
-    width: 100%;
-    transition: transform 0.5s ease-in-out;
+    align-items: center;
     justify-content: center;
 }
 
-.item {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    max-width: 100%;
+@media (max-width: 850px) {
+    .swiper {
+        width: 470px;
+        height: 470px;
+    }
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+    color: #283618;
+    /* Cor do ícone */
+}
 
+.swiper-button-disabled {
+    opacity: 0.5;
+    /* Opacidade dos botões desabilitados */
+}
 
+.swiper-pagination-bullet {
+    background-color: #283618;
+    /* Cor das bolinhas */
+}
 
+.swiper-pagination-bullet-active {
+    background-color: #283618;
+    /* Cor da bolinha ativa */
+}
 
 /* Estilo para a segunda seção (Infopessoais) */
 #Infopessoais {
     background-color: #f7ede2;
-    color: #000000; /* Cor do texto */
+    color: #000000;
+    /* Cor do texto */
 }
 
 
@@ -295,4 +354,3 @@ section div i {
 #Cursos {
     background-color: #f7ede2;
 }
-
