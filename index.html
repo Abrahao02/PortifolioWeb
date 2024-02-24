@@ -6,19 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portifolio</title>
-    <link 
-    rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" 
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <nav id="nav">
         <ul>
-            <li><a href="#Home">Home</a></li>
+            <li><a href="#Home"><i class="fas fa-home"></i></a></li>
             <li><a href="#Projetos">Projetos</a></li>
-            <li><a href="#Infopessoais">Sobre</a></li>
+            <li><a href="#Infopessoais">EU</a></li>
             <li><a href="#Experiencia">Experiência</a></li>
             <li><a href="#Cursos">Cursos</a></li>
         </ul>
@@ -46,106 +43,187 @@
                 </div>
 
                 <div class="icon-container">
-                    <i class="fas fa-phone"></i>
-                    <span id="telefone" style="display: none;">+55(21) 99437-7887</span>
-                </div>
-
-                <div class="icon-container">
                     <i class="fa-solid fa-envelope"></i>
                     <span id="email" style="display: none;">eduardo.abrahao@hotmail.com</span>
                 </div>
 
-
-            </div>
-
-            <!-- <div class="image-container">
-                <img src="Imagens/euimage.jpeg" alt="Eduardo De Sá Abrahão" class="profile-image">
-            </div> -->
-            
-        </section>
-
-        <section id="Projetos">
-            <h2 class="h2-container">Projetos</h2>
-
-            <div class="swiper">
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div class="project-img">
-                            <a href="https://infnet-aluno2023-01.azurewebsites.net/?pagina=1" target="_blank">
-                                <img src="Imagens/Foto_01.PNG" alt="Foto 01">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="project-img">
-                            <a href="https://github.com/Abrahao02/ReceitaAplicativoAndroid" target="_blank">
-                                <img src="Imagens/Foto_02.jpeg" alt="Foto 02">
-                            </a>
-                        </div>
-                    </div>
+                <div class="icon-container">
+                    <i class="fas fa-phone"></i>
+                    <span id="telefone" style="display: none;">+55(21) 99437-7887</span>
                 </div>
 
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
             </div>
 
-
         </section>
+
+
+        <section id="Projetos">
+            <div class="content-wrapper">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="project-img">
+                                <img src="Imagens/Foto_01.PNG" alt="Foto 01">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="project-img">
+                                <img src="Imagens/Foto_02.jpeg" alt="Foto 02">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <div class="info">
+
+                    <div>
+                        <h2>Projetos</h2>
+                        <p>Aqui temos meu projetos!</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">Projeto 1: Site de Skin de CS:GO</h3>
+                        <div class="project-info" style="display: none;">
+                            <p>Um site de marketplace para compra e venda de skins de CS:GO.</p>
+                            <p>Linguagem utilizada: C# 65.7%, HTML 30.1%, CSS 4.0%, JavaScript 0.2%</p>
+                            <p>Outras tecnologias: ASP.NET Core Razor Pages</p>
+                            <p>IDE utilizada: Visual Studio</p>
+                            <p>Linhas Codigo: 2100</p>
+                            <a href="https://infnet-aluno2023-01.azurewebsites.net/?pagina=1" target="_blank"
+                                class="btn-ver-mais">Ver mais</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">Projeto 2: Aplicativo de Receitas</h3>
+                        <div class="project-info" style="display: none;">
+
+                            <p>Um aplicativo para guardar calcular suas receitas favoritas.</p>
+                            <p>Linguagem utilizada: Java 99.1%, JavaScript 0.9%</p>
+                            <p>Outras tecnologias: Firebase Auth e FireCloud</p>
+                            <p>IDE utilizada: Android Studio</p>
+                            <p>Linhas Codigo: 1800</p>
+                            <a href="https://github.com/Abrahao02/ReceitaAplicativoAndroid" target="_blank"
+                                class="btn-ver-mais">Ver mais</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
 
 
         <section id="Infopessoais">
-            <h2>Informações Pessoais</h2>
-            <p>Brasileiro, Nascimento: set/2002</p>
-            <p>Rio de Janeiro, Rio de Janeiro</p>
-            <p>Ensino Superior – Instituto Infnet - Engenharia de Software (em andamento,2020-2024,Noturno)</p>
-            <p>Inglês Avançado</p>
+            <div class="info-container-eu">
+                <div class="info-column-pessoais">
+                    <h2>Informações Pessoais</h2>
+                    <p>Ensino Superior – Instituto Infnet - Engenharia de Software</p>
+                    <p>(em andamento,2020-2024,Noturno)</p>
+                    <p>Brasileiro, Nascimento: set/2002</p>
+                    <p>Rio de Janeiro, Rio de Janeiro</p>
+
+                    <p>Inglês Avançado</p>
+                </div>
+                <div class="foto-eu">
+                    <img src="Imagens/eu.jpeg" alt="Foto 02" class="profile-picture">
+                </div>
+
+            </div>
         </section>
 
+
+
+
         <section id="Experiencia">
-            <h2>Experiência</h2>
-            <p>Em busca de oportunidade para colocar em prática os conhecimentos adquiridos.</p>
-            <p>Projetos pessoais usando diversas IDEs, utilizando as seguintes linguagens:</p>
-            <ul>
-                <li>Python</li>
-                <li>JavaScript</li>
-                <li>C#</li>
-                <li>Kotlin</li>
-                <li>React Native</li>
-                <li>React</li>
-                <li>HTML/CSS</li>
-            </ul>
-            <div style="display: inline_block"><br>
-                <img align="center" alt="Edu-Js" height="30" width="40"
-                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-                <img align="center" alt="Edu-React" height="30" width="40"
-                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
-                <img align="center" alt="Edu-HTML" height="30" width="40"
-                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
-                <img align="center" alt="Edu-CSS" height="30" width="40"
-                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
-                <img align="center" alt="Edu-Python" height="30" width="40"
-                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
-                <img align="center" alt="Edu-C#" height="30" width="40"
-                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg">
-                <img align="center" alt="Edu-Kotlin" height="30" width="40"
-                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg">
+            <div class="info-container-exp">
+                <div class="info-column-exp">
+                    <div style="display: inline_block"><br>
+                        <img align="center" alt="Edu-Js" height="30" width="40"
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-plain.svg">
+                        <img align="center" alt="Edu-Js" height="30" width="40"
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+                        <img align="center" alt="Edu-React" height="30" width="40"
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+                        <img align="center" alt="Edu-HTML" height="30" width="40"
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+                        <img align="center" alt="Edu-CSS" height="30" width="40"
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
+                        <img align="center" alt="Edu-Python" height="30" width="40"
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+                        <img align="center" alt="Edu-C#" height="30" width="40"
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg">
+                        <img align="center" alt="Edu-Kotlin" height="30" width="40"
+                            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg">
+                    </div>
+                </div>
+
+                <div class="info-column-exp">
+                    <h2>Experiência</h2>
+                    <p>Em busca de oportunidade para colocar em prática os conhecimentos adquiridos.</p>
+                    <p>Projetos pessoais usando diversas IDEs, utilizando as seguintes linguagens:</p>
+                    <p>Java, JavaScript, React Native, React, HTML/CSS, Python, C#, Kotlin</p>
+                </div>
+
             </div>
         </section>
 
         <section id="Cursos">
-            <h2>Cursos</h2>
-            <ul>
-                <li>Cultura Inglesa</li>
-                <li>Fundação Bradesco - HTML, CSS E JAVASCRIPT </li>
-                <li>Fundação Bradesco - Linguagem de Programação C#</li>
-                <li>Foundational C# with Microsoft</li>
-                <li>Desenvolvimento Android (Kotlin)</li>
-                <li>Desenvolvimento Front-end com Frameworks (React, React Native)</li>
-                <li>Desenvolvimento Back-End (Java, C#)</li>
-            </ul>
+
+            <div class="content-wrapper">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="project-img">
+                                <img src="Imagens/certificados/Python 40hrs.PNG" alt="Foto 01">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="project-img">
+                                <img src="Imagens/certificados/vai!!.PNG" alt="Foto 02">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="project-img">
+                                <img src="Imagens/certificados/Banco de Dados 40hrs.PNG" alt="Foto 02">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <div class="info">
+                    <h2>Cursos</h2>
+                    <div class="project-info-cursos">
+                        <p>Cultura Inglesa</p>
+                        <p>Fundação Bradesco - HTML</p>
+                        <p>CSS E JAVASCRIPT</p>
+                        <p>Fundação Bradesco - Linguagem de Programação C#</p>
+                        <p>Foundational C# with Microsoft</p>
+                        <p>Desenvolvimento Android (Kotlin)</p>
+                        <p>Desenvolvimento Front-end com Frameworks (React, React Native)</p>
+                        <p>Desenvolvimento Back-End (Java, C#)</p>
+                    </div>
+                </div>
+
         </section>
     </main>
 
