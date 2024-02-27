@@ -1,4 +1,4 @@
-// JavaScript para o carrossel
+// JavaScript para o carrossel projetos 
 document.addEventListener('DOMContentLoaded', function() {
     var swiper = new Swiper('.swiper', {
         loop: true,
@@ -49,10 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
-
-  
 
 
 // NAVEGACAO SUAVE
