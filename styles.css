@@ -1,50 +1,121 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+:root {
+    --primary-color: #283618;
+    --secondary-color: #f7ede2;
+    --dark-bg: #212529;
+    --light-bg: #f7ede2;
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --transition: all 0.3s ease;
+    --nav-height: 80px; /* default nav height for scroll offset */
+    --nav-height-mobile: 56px; /* smaller nav for mobile */
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 html,
 body {
     height: 100% !important;
-    font-family: 'Montserrat', sans-serif; /* Adiciona a fonte Montserrat */
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
 }
 
 body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* smoother scrolling on iOS */
 }
 
 #nav {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: saturate(100%) blur(20px);
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
     padding: 1rem;
     position: fixed;
-    /* torna a barra de navegação fixa */
     top: 0;
-    /* posiciona a barra de navegação no topo da janela do navegador */
     z-index: 1000;
-    /* certifica-se de que a barra de navegação fique sobre outros elementos */
+    transition: var(--transition);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-ul {
+#nav.scrolled {
+    padding: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+#nav ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#nav ul > li {
+    list-style-type: none;
+    position: relative;
+}
+
+#nav ul > li > a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: var(--transition);
+    border-radius: 4px;
+    position: relative;
+}
+
+#nav ul > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+#nav ul > li > a:hover::after {
     width: 100%;
 }
 
-ul>li {
-    list-style-type: none;
+#nav ul > li > a:hover {
+    color: var(--secondary-color);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-ul>li>a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.8);
+@media screen and (max-width: 768px) {
+    #nav {
+        padding: 0.8rem 0;
+    }
+
+    #nav ul {
+        gap: 0.5rem;
+    }
+
+    #nav ul > li > a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #nav ul > li > a {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.4rem;
+    }
 }
 
 
@@ -54,9 +125,10 @@ section {
     padding: 0;
 }
 
-/* Estilo para cada seção ocupar toda a página */
+/* Estilo para cada seção ocupar toda a página (use unidades dinâmicas para dispositivos móveis)
+   Using min-height: 100dvh reduces layout issues on mobile browsers where the address bar shrinks/expands. */
 section {
-    height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,11 +208,162 @@ section div i {
     margin-right: 5px;
 }
 
+/* Estilos globais de interatividade */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Melhorias nas seções */
+section {
+    min-height: 100vh;
+    padding: 6rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    z-index: -1;
+}
+
+/* Estilos de texto aprimorados */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+p {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* Melhoria nos contêineres */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Melhorias na responsividade */
+@media screen and (max-width: 768px) {
+    section {
+        padding: 4rem 1rem;
+    }
+
+    h2::after {
+        width: 60px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    section {
+        padding: 3rem 0.5rem;
+    }
+
+    .container {
+        width: 95%;
+        padding: 0 0.5rem;
+    }
+}
+
+/* Melhorias nas animações de hover */
+.hover-effect {
+    transition: var(--transition);
+}
+
+.hover-effect:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height);
+}
+
+/* Ajusta a variável de altura da nav em telas pequenas */
+@media screen and (max-width: 768px) {
+    :root {
+        --nav-height: var(--nav-height-mobile);
+    }
+}
+
+/* Touch targets and accessibility for small screens */
+a, button, .btn-ver-mais, #nav ul > li > a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    touch-action: manipulation;
+}
+
+/* Ensure tap targets are large enough */
+.btn-ver-mais, #nav ul > li > a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+/* Melhorias na acessibilidade */
+:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Melhorias no contraste e legibilidade */
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bg-gradient {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1e21 100%);
+}
+
+/* Melhorias nas transições */
+.smooth-transition {
+    transition: var(--transition);
+}
+
 
 /* Estilo para a primeira seção (Home) */
 #Home {
     position: relative;
-    height: 100vh;
+    min-height: 100dvh;
 }
 
 #Home h2 {
@@ -285,7 +508,7 @@ section div i {
 /* Estilo para a terceira seção (Projetos) */
 #Projetos {
     position: relative;
-    height: 100vh;
+    min-height: 100dvh;
     background-color: #212529;
     color: #f7ede2;
     display: flex; /* Torna a seção um flex container */
@@ -337,7 +560,48 @@ h2 {
 .btn-ver-mais:hover {
     background-color: #283618; /* Adicionando uma cor de fundo ao passar o mouse */
 }
+.btn-ver-mais {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--secondary-color);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    z-index: 1;
+    margin-top: 1rem;
+}
 
+.btn-ver-mais::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.btn-ver-mais:hover::before {
+    width: 100%;
+}
+
+.btn-ver-mais:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 54, 24, 0.2);
+}
+
+.btn-ver-mais:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(40, 54, 24, 0.2);
+}
 .project-title {
     cursor: pointer;
 }
@@ -360,36 +624,90 @@ span {
     white-space: nowrap;
 }
 
-.swiper {
-    width: 1000px;
-    height: 490px;
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
-.swiper-slider {
-    text-align: center;
+.project-img {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-@media (max-width: 850px) {
-    .project-title {
-        font-size: 14px; /* Altere para o tamanho desejado */
-    }
+.project-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
 
-    .project-info p {
-        font-size: 14px; /* Altere para o tamanho desejado */
-    }
-    .swiper {
-        padding-top: 150px;
+.project-img img:hover {
+    transform: scale(1.02);
+}
+
+.project-title {
+    font-size: clamp(16px, 2.5vw, 20px);
+    margin-bottom: 1rem;
+    color: #f7ede2;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.project-title:hover {
+    color: #283618;
+}
+
+.project-info p {
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+
+@media (max-width: 968px) {
+    .project-img img {
+        max-height: 300px;
+        object-fit: contain;
     }
 }
 
+/* Em telas pequenas queremos que as informações (cards) apareçam antes do carrossel */
+@media (max-width: 968px) {
+    .content-wrapper {
+        flex-direction: column-reverse; /* coloca .info acima de .swiper */
+        align-items: stretch;
+        gap: 1.5rem;
+    }
 
-@media (max-width: 850px) {
     .swiper {
-        width: 470px;
-        height: 470px;
+        width: 100% !important;
+        margin: 0 auto 1rem auto;
+        order: 2;
+    }
+
+    .info {
+        width: 100%;
+        order: 1;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-img img {
+        max-height: 250px;
+    }
+    
+    .project-title {
+        font-size: 16px;
+    }
+
+    .project-info p {
+        font-size: 14px;
     }
 }
 
@@ -417,7 +735,7 @@ span {
 /* Estilo para a segunda seção (Infopessoais) */
 #Infopessoais {
     position: relative;
-    height: 100vh;
+    min-height: 100dvh;
     background-color: #f7ede2;
     color: #000000;
     /* Cor do texto */
@@ -440,6 +758,18 @@ span {
     border: 1px solid #ccc; /* Adiciona uma borda de 1px sólida com a cor #ccc */
     border-radius: 5px; /* Adiciona uma borda arredondada */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+}
+
+/* Garantir que o título fique dentro do card e posicionado corretamente */
+.info-column-pessoais {
+    position: relative;
+    overflow: visible;
+}
+
+.info-column-pessoais h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    position: relative; /* para que ::after do h2 fique dentro do próprio título */
 }
 
 .foto-eu {
@@ -467,12 +797,35 @@ span {
     }
 }
 
+@media screen and (max-width: 768px) {
+    .info-container-eu {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .info-column-pessoais {
+        width: 95%;
+        padding: 1.25rem;
+        border-radius: 8px;
+    }
+
+    .foto-eu {
+        width: 60%;
+        padding-left: 0;
+    }
+
+    #Infopessoais h2 {
+        text-align: left; /* mantem dentro do card */
+    }
+}
+
 
 
 /* Estilo para a quarta seção (Experiencia) */
 #Experiencia {
     position: relative;
-    height: 100vh;
+    min-height: 100dvh;
     background-color: #000000;
     color: #ffffff;
     display: flex; /* Torna a seção um flex container */
@@ -531,5 +884,172 @@ span {
     .project-info-cursos {
         text-align: left;
         margin-left: 20px;
+    }
+}
+/* --- Estilos para a Seção de Contato (#Contato) 📧 --- */
+
+#Contato {
+    /* Define o fundo e cor do texto para Contato */
+    background-color: var(--secondary-color); /* #f7ede2 */
+    color: var(--text-dark); /* #000000 */
+    min-height: 80dvh; /* Pode ser um pouco menor que as outras seções */
+    padding: 6rem 1rem;
+}
+
+#Contato .info-container-eu {
+    /* Centraliza o conteúdo (já está na estrutura do Infopessoais, aqui apenas garantimos) */
+    width: 90%;
+    max-width: 900px; /* Limita a largura máxima do container de contato */
+    margin: 0 auto;
+    flex-direction: column; /* Coloca o conteúdo em coluna para centralizar mais facilmente */
+    text-align: center;
+}
+
+#Contato .info-column-pessoais {
+    /* Estilo do card de informações de contato */
+    width: 100%; /* Ocupa a largura total dentro do container */
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Fundo branco para o card */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens dentro da coluna */
+}
+
+#Contato h2 {
+    /* Estilo do seu nome na seção de Contato */
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--primary-color);
+}
+
+#Contato h2::after {
+    /* Remove ou ajusta o separador para esta seção */
+    content: none; /* Remove a linha sob o h2 */
+}
+
+#Contato p {
+    margin: 0.5rem 0;
+}
+
+#Contato strong {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+#Contato .icon-container {
+    /* Estilo para cada linha de informação (email, telefone, etc.) */
+    font-size: clamp(1rem, 2vw, 1.1rem); /* Tamanho de fonte ajustável */
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza os ícones */
+    width: 100%;
+}
+
+#Contato .icon-container i {
+    margin-right: 10px;
+    font-size: 1.5em; /* Ícones maiores para destaque */
+    color: var(--primary-color);
+}
+
+#Contato .icon-container a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    word-break: break-word; /* Garante que links longos quebrem a linha */
+}
+
+#Contato .icon-container a:hover {
+    color: #4a6a38; /* Um tom um pouco mais escuro ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* --- Responsividade para Contato 📱 --- */
+
+@media screen and (max-width: 768px) {
+    #Contato {
+        padding: 4rem 0.5rem;
+    }
+
+    #Contato .info-container-eu {
+        width: 100%;
+    }
+
+    #Contato .info-column-pessoais {
+        padding: 1.5rem 1rem;
+    }
+
+    #Contato .icon-container {
+        flex-direction: row; /* Mantém em linha */
+        justify-content: flex-start; /* Alinha à esquerda dentro da coluna */
+        padding-left: 1rem; /* Um pequeno recuo para melhor visualização */
+    }
+
+    #Contato h2 {
+        text-align: center; /* Centraliza o nome em telas menores */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #Contato .icon-container {
+        /* Reduz o tamanho da fonte em telas muito pequenas */
+        font-size: 0.95rem;
+    }
+}
+
+/* --- Responsividade para Contato 📱 (Ajustado) --- */
+
+/* Ajusta o tamanho da fonte e garante quebra para URLs longas */
+#Contato .icon-container a,
+#Contato .icon-container span {
+    /* Garante que o texto seja menor e quebre a linha se necessário */
+    font-size: clamp(0.9rem, 4vw, 1.1rem); /* Define um tamanho de fonte flexível, começando em 0.9rem */
+    word-break: break-all; /* Força a quebra de palavras longas (como URLs) */
+    text-align: left;
+    flex-grow: 1; /* Permite que o texto cresça para ocupar o espaço disponível */
+    min-width: 0; /* Ajuda o flex-grow e word-break a funcionarem corretamente */
+}
+
+/* Ajusta o alinhamento do container principal em telas menores */
+@media screen and (max-width: 768px) {
+    #Contato {
+        padding: 4rem 1rem;
+    }
+
+    #Contato .info-container-eu {
+        width: 100%;
+        max-width: none; /* Remove a largura máxima para ocupar a tela */
+    }
+
+    #Contato .info-column-pessoais {
+        padding: 1.5rem 1rem;
+        /* Alinha o conteúdo à esquerda e o centraliza em relação à tela */
+        align-items: flex-start; 
+        text-align: left;
+        width: 95%; /* Ocupa a maior parte da largura da tela */
+    }
+
+    #Contato h2 {
+        text-align: center; /* Centraliza apenas o nome */
+        width: 100%;
+    }
+
+    #Contato p {
+        /* Alinha as informações de texto (exceto nome) à esquerda */
+        text-align: left;
+        width: 100%;
+    }
+    
+    #Contato .icon-container {
+        /* Garante que o ícone e o texto fiquem em linha (como na sua imagem) */
+        flex-direction: row; 
+        justify-content: flex-start;
+        align-items: flex-start; /* Alinha o ícone e o texto no topo */
+        padding-left: 0;
+        text-align: left;
     }
 }
